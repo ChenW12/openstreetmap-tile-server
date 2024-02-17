@@ -169,6 +169,6 @@ COPY --from=compiler-stylesheet /root/openstreetmap-carto /home/renderer/src/ope
 
 # Start running
 COPY run.sh /
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/bin/bash"]
 CMD []
 EXPOSE 80 5432
