@@ -87,6 +87,8 @@ RUN apt-get update \
 && apt-get autoremove --yes \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
+RUN adduser --disabled-password --gecos "" chen
+
 RUN adduser --disabled-password --gecos "" renderer
 
 # Get Noto Emoji Regular font, despite it being deprecated by Google
@@ -169,6 +171,6 @@ COPY --from=compiler-stylesheet /root/openstreetmap-carto /home/renderer/src/ope
 
 # Start running
 COPY run.sh /
-ENTRYPOINT ["/run.sh"]
+# ENTRYPOINT ["/run.sh"]
 CMD []
 EXPOSE 80 5432
